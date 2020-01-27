@@ -23,9 +23,11 @@ class MyApp extends StatelessWidget {
               title: TextStyle(fontSize: 20, fontFamily: 'Roboto', fontWeight: FontWeight.bold),
             ),
       ),
-      home: CategoriesPage(),
+      // home: CategoriesPage(), // initialRoute is specified
+      initialRoute: '/',
       routes: {
-        '/category-meals': (ctx) => CategoryMealsPage(),
+        '/': (ctx) => CategoriesPage(),
+        CategoryMealsPage.routeName: (ctx) => CategoryMealsPage(),
       },
     );
   }
