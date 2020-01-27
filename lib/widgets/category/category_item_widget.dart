@@ -8,8 +8,12 @@ class CategoryItemWidget extends StatelessWidget {
 
   const CategoryItemWidget(this._category);
 
-  void _selectCategory(BuildContext context) => Navigator.of(context)
-      .push(MaterialPageRoute(builder: (_) => CategoryMealsPage()));
+  void _selectCategory(BuildContext context) =>
+      Navigator.of(context).pushNamed('/category-meals', arguments: {
+        'id': _category.id,
+        'title': _category.title,
+      });
+  // .push(MaterialPageRoute(builder: (_) => CategoryMealsPage(_category.id, _category.title)));
 
   @override
   Widget build(BuildContext context) {
