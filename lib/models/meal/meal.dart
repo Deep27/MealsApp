@@ -15,6 +15,32 @@ class Meal {
   final bool isVegan;
   final bool isVegetarian;
 
+  String get affordabilityText {
+    switch (affordability) {
+      case Affordability.affordable:
+        return 'Affordable';
+      case Affordability.pricey:
+        return 'Pricey';
+      case Affordability.luxurious:
+        return 'Expensive';
+      default:
+        return 'Unknown';
+    }
+  }
+
+  String get complexityText {
+    switch (complexity) {
+      case Complexity.simple:
+        return 'Simple';
+      case Complexity.challenging:
+        return 'Challenging';
+      case Complexity.hard:
+        return 'Hard';
+      default:
+        return 'Unknown';
+    }
+  } 
+
   const Meal(
       {@required this.id,
       @required this.categories,
@@ -29,7 +55,7 @@ class Meal {
       @required this.isLactoseFree,
       @required this.isVegan,
       @required this.isVegetarian});
-}
+} 
 
 enum Complexity { simple, challenging, hard }
 

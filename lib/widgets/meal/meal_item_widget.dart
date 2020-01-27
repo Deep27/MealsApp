@@ -1,52 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal/meal.dart';
+import 'package:meals_app/screens/meal_detail_screen.dart';
 
 class MealItemWidget extends StatelessWidget {
-  final String title;
-  final String imageUrl;
-  final int duration;
-  final Complexity complexity;
-  final Affordability affordability;
+  final Meal _meal;
 
-  MealItemWidget(
-      {@required this.title,
-      @required this.imageUrl,
-      @required this.duration,
-      @required this.complexity,
-      @required this.affordability});
+  const MealItemWidget(this._meal); 
 
-  String get complexityText {
-    switch (complexity) {
-      case Complexity.simple:
-        return 'Simple';
-      case Complexity.challenging:
-        return 'Challenging';
-      case Complexity.hard:
-        return 'Hard';
-      default:
-        return 'Unknown';
-    }
+  void _selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(MealDetailScreen.routeName, arguments: {
+      'id': _meal.id,
+      'title': _meal.title, 
+    });
   }
-
-  String get affordabilityText {
-    switch (affordability) {
-      case Affordability.affordable:
-        return 'Affordable';
-      case Affordability.pricey:
-        return 'Pricey';
-      case Affordability.luxurious:
-        return 'Expensive';
-      default:
-        return 'Unknown';
-    }
-  }
-
-  void _selectMeal() {}
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _selectMeal,
+      onTap: () => _selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -63,7 +34,7 @@ class MealItemWidget extends StatelessWidget {
                     topRight: Radius.circular(15),
                   ),
                   child: Image.network(
-                    imageUrl,
+                    _meal.imageUrl,
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -80,7 +51,7 @@ class MealItemWidget extends StatelessWidget {
                       horizontal: 20,
                     ),
                     child: Text(
-                      title,
+                      _meal.title,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 26,
@@ -101,21 +72,21 @@ class MealItemWidget extends StatelessWidget {
                     children: <Widget>[
                       Icon(Icons.schedule),
                       SizedBox(width: 6),
-                      Text('$duration min'),
+                      Text('${_meal.duration} min'),
                     ],
                   ),
                   Row(
                     children: <Widget>[
                       Icon(Icons.work),
                       SizedBox(width: 6),
-                      Text(complexityText),
+                      Text(_meal.complexityText),
                     ],
                   ),
                   Row(
                     children: <Widget>[
                       Icon(Icons.attach_money),
                       SizedBox(width: 6),
-                      Text(affordabilityText),
+                      Text(_meal.affordabilityText),
                     ],
                   ),
                 ],
