@@ -12,6 +12,7 @@ class CategoriesPage extends StatelessWidget {
         title: const Text(APP_NAME),
       ),
       body: GridView(
+        padding: const EdgeInsets.all(25),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,
           childAspectRatio: 3 / 2,
