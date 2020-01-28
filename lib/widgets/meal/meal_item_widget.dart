@@ -5,13 +5,11 @@ import 'package:meals_app/screens/meal_detail_screen.dart';
 class MealItemWidget extends StatelessWidget {
   final Meal _meal;
 
-  const MealItemWidget(this._meal); 
+  const MealItemWidget(this._meal);
 
   void _selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(MealDetailScreen.routeName, arguments: {
-      'id': _meal.id,
-      'title': _meal.title, 
-    });
+    Navigator.of(context)
+        .pushNamed(MealDetailScreen.routeName, arguments: {'id': _meal.id});
   }
 
   @override
