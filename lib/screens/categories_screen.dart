@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/data/category/dummy_data.dart';
 import 'package:meals_app/widgets/category/category_item_widget.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends StatelessWidget { 
+
   @override
   Widget build(BuildContext context) => GridView(
         padding: const EdgeInsets.all(25),
