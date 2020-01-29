@@ -8,8 +8,12 @@ class MealItemWidget extends StatelessWidget {
   const MealItemWidget(this._meal);
 
   void _selectMeal(BuildContext context) {
-    Navigator.of(context)
-        .pushNamed(MealDetailScreen.routeName, arguments: {'id': _meal.id});
+    Navigator.of(context).pushNamed(MealDetailScreen.routeName,
+        arguments: {'id': _meal.id}).then((result) {
+          if (result != null) {
+            _meal.removeItem(result);
+          }
+        });
   }
 
   @override

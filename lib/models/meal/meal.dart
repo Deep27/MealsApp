@@ -14,6 +14,7 @@ class Meal {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
+  Function removeItem; 
 
   String get affordabilityText {
     switch (affordability) {
@@ -39,9 +40,9 @@ class Meal {
       default:
         return 'Unknown';
     }
-  } 
+  }
 
-  const Meal(
+  Meal(
       {@required this.id,
       @required this.categories,
       @required this.title,
@@ -55,7 +56,7 @@ class Meal {
       @required this.isLactoseFree,
       @required this.isVegan,
       @required this.isVegetarian});
-} 
+}
 
 enum Complexity { simple, challenging, hard }
 
