@@ -34,7 +34,6 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
       _displayedMeals = widget._availableMeals
           .where((meal) => meal.categories.contains(_categoryId))
           .map((meal) {
-        meal.removeItem = _removeMeal;
         return meal;
       }).toList();
       _loadedInitData = true;

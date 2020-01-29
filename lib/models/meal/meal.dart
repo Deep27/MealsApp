@@ -14,7 +14,6 @@ class Meal {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
-  Function removeItem; 
 
   String get affordabilityText {
     switch (affordability) {
